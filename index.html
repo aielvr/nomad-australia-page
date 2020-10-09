@@ -22,12 +22,12 @@
                         <span id="menu-burger"></span>
                     </div>
                     <ul id="menu-bar">
-                        <li><a href="#">Австралия</a></li>
-                        <li><a href="#">Что смотреть</a></li>
-                        <li><a href="#">Туры</a></li>
-                        <li><a href="#">Проживание</a></li>
-                        <li><a href="#">О нас</a></li>
-                        <li><a href="#">Контакты</a></li>
+                        <li><a class="menu-link" href="index.html#about">Австралия</a></li>
+                        <li><a class="menu-link" href="index.html#sights">Что смотреть</a></li>
+                        <li><a class="menu-link" href="index.html#tariffs">Туры</a></li>
+                        <li><a class="menu-link" href="index.html#residence">Проживание</a></li>
+                        <li><a class="menu-link" href="index.html#about-us">О нас</a></li>
+                        <li><a class="menu-link" href="index.html#">Контакты</a></li>
                     </ul>
                 </nav>
                 <div class="rectangle">
@@ -41,8 +41,9 @@
                         <button class='to-do-link'>ЗАБРОНИРОВАТЬ</button>
                     </div>
             </section>
-            <div class="about-wrapper">
+            <div class="about-wrapper"> 
                 <section class="about">
+                    <p><a name="about"></a></p>
                     <img src='images/australia-road.jpg'>
                     <div class="paragraph-size about-text">
                         Австралия — это уникальная страна, гостеприимная и необычайно красивая земля,
@@ -58,6 +59,7 @@
                 </section>
             </div>
             <section class='sights'>
+                <p><a name="sights"></a></p>
                 <div class='megalopolis'>
                     <h1>Мегаполисы</h1>
                     <p class="paragraph-size">Привлекательность Зелёного континента состоит не только в необыкновенной природе материка. Немаловажную роль играют и города, ставшие центрами деловой и культурной жизни...</p>
@@ -75,6 +77,7 @@
                 <hr>
             </section>
             <section class='tariffs'>
+                <p><a name="tariffs"></a></p>
                 <h1>Тарифы</h1>
                 <div class='tariffs-list'>
                     <div>
@@ -141,6 +144,7 @@
                 <p class='tariffs-note'>*Во все тарифы не включены авиабилеты  и медицинская страховка</p>
             </section>
             <section class="residence">
+                <p><a name="residence"></a></p>
                 <article>
                     <h2>ПРОЖИВАНИЕ</h2>
                     <p class="paragraph-size appartment-article">
@@ -166,6 +170,7 @@
                 </div>
             </section>
             <section class="about-us">
+                <p><a name="about-us"></a></p>
                 <div class="wrapper" style="width: 100%;">
                     <div class="image-container">
                         <div class='fisrt-rectangle'></div>
@@ -196,9 +201,13 @@
 
         const menuButton = document.getElementById("menu-burger");
         const menuList = document.getElementById("menu-bar");
+        const menuLink = document.getElementsByClassName("menu-link");
 
         // меню-бургер
         menuButton.addEventListener("click", () => { console.log('hey'); menuList.classList.toggle("active")});
+        Object.keys(menuLink).forEach(index => { menuLink[index].addEventListener("click", () => menuList.classList.toggle("active"));
+            
+        });
 
         // слайды
         let slideIndex = 1;
