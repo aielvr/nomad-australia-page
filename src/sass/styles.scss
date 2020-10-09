@@ -1,5 +1,9 @@
 // @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,13 +29,14 @@ button:focus {
     color: #FFFCFC;
 
     h1 {
-        font-size: 70px;
+        font-size: 3.5em;
         font-weight: 400;
+        margin-right: 10px;
     }
 
     .paragraph-size {
         margin: 15px 0;
-        font-size: 21px;
+        font-size: 1.1em;
         line-height: 25px;
     }
 
@@ -56,7 +61,7 @@ button:focus {
         padding-top: 22px;
         min-height: 920px;
         background: #001D25;
-        background-image: url(../../images/97f894f6e3c1b60696e927f2a4034d70.jpg);
+        background-image: url(../../images/australia-beach.jpg);
         background-size: cover;
         position: relative;
 
@@ -85,59 +90,66 @@ button:focus {
             position: relative;
     
             #menu-bar {
-                display: inline-block;
+                display: inline;
 
                 & > li {
                     display: inline;
                     list-style: none;
 
                     a {
-                        margin-left: 60px;
+                        margin-left: 4%;
                         text-decoration: none;
                         color: #FFFCFC;
-                        font-size: 27px;
+                        font-size: 1.5em;
                         line-height: 32px;
                     }
                 }
             }
 
-            .logo {
+            .wrapper {
                 display: inline;
-                position: relative;
-                font-size: 30px;
-                width: 100%;
+
+                .logo {
+                    display: inline;
+                    position: relative;
+                    font-size: 30px;
+                    width: 100%;
+        
+                    span {
+                        position: absolute;
+                        top: 15px;
+                        left: 25px;
+                    }
+                }
     
-                span {
+                #menu-burger {
+                    width: 35px;
+                    height: 5px;
+                    display: none;
+                    background: white;
                     position: absolute;
-                    top: 15px;
-                    left: 25px;
+                    top: 25px;
+                    right: 15px;
+    
+                    &::before, &::after {
+                        content: '';
+                        width: inherit;
+                        height: inherit;
+                        position: inherit;
+                        background: inherit;
+                    }
+    
+                    &::before {
+                        top: -10px;
+                    }
+    
+                    &::after {
+                        top: 10px;
+                    }
                 }
             }
 
-            #menu-burger {
-                width: 35px;
-                height: 5px;
-                display: none;
-                background: white;
-                position: absolute;
-                top: 15px;
 
-                &::before, &::after {
-                    content: '';
-                    width: inherit;
-                    height: inherit;
-                    position: inherit;
-                    background: inherit;
-                }
-
-                &::before {
-                    top: -10px;
-                }
-
-                &::after {
-                    top: 10px;
-                }
-            }
             
         }
     }
@@ -158,7 +170,6 @@ button:focus {
         }
 
         .about-text {
-            flex: 0 1 50%;
             text-align: left;
             vertical-align: top;
             max-width: 470px;
@@ -181,12 +192,12 @@ button:focus {
         > div {
             flex: 1;
 
-            padding-left: 50px;
-            padding-top: 70px;
+            padding: 70px 10px 0 50px;
             margin-left: 5px;
 
             position: relative;
             height: 770px;
+            // overflow: hidden;
         }
         
         .number {
@@ -201,7 +212,7 @@ button:focus {
             background-image: url(/images/Sydney.jpg);
             background-position-y: -110px;
             background-position-x: -80px;
-            width: 576px;
+            max-width: 576px;
             height: 810px;
 
             p {
@@ -211,6 +222,7 @@ button:focus {
 
             .to-know-link {
                 background: rgba(255, 253, 253, 0.4);
+                margin-bottom: 20px;
 
                 &:hover {
                     background: rgba(255, 253, 253, 0.7);
@@ -225,13 +237,13 @@ button:focus {
         .nature {
             background-image: url(/images/koala.jpg);
             background-size: cover;
-            width: 529px;
+            max-width: 529px;
             padding-left: 35px;
         }
         
         .beaches {
             background-image: url(/images/beach.jpg);
-            width: 238px;
+            max-width: 238px;
             height: 770px;
             padding-left: 20px;
         }
@@ -262,7 +274,6 @@ button:focus {
 
         .tariffs-list {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-around;
 
             > div {
@@ -281,7 +292,8 @@ button:focus {
                     p {
                         max-width: 333px;
                         text-align: left;
-                        padding-left: 30px;
+                        padding-left: 25px;
+                        padding-right: 15px;
                     }
                 }
 
@@ -342,10 +354,10 @@ button:focus {
         min-height: 858px;
 
         article {
-            flex: 0 1 50%;
 
             background: rgba(130, 189, 197, 1);
             width: 618px;
+            min-width: 500px;
             height: 586px;
             margin-right: 45px;
             margin-left: 110px;
@@ -374,12 +386,13 @@ button:focus {
         }
 
         .appartment-image {
-            flex: 0 1 50%;
+            overflow: hidden;
+            margin-right: 15px;
 
             .slide.fade {
-                width: 610px;
-                height: 407px;
-                margin: 0 auto;
+                max-width: 610px;
+                min-height: 481px;
+                width: 100%;
 
                 /* Fading animation */
                 -webkit-animation-name: fade;
@@ -475,9 +488,78 @@ button:focus {
 @media (max-width: 1200px) {
     #container {
 
+        h1 {
+            font-size: 2.5em;
+        }
+
+        .title-page {
+
+            #navbar {
+                #menu-bar {
+                    & > li {
+                        a {
+                            font-size: 1.2em;
+                        }
+                    }
+
+                }
+            }
+        }
+
         .about {
             img {
                 margin-left: 8%;
+            }
+        }
+
+        .tariffs {
+
+            .tariffs-list {
+
+                & > div {
+                    width: auto;
+                }
+
+            }
+        }
+
+        .residence {
+            flex-wrap: wrap;
+            background: linear-gradient(to top
+                , rgba(0,29,37,0.04)
+                , rgba(0,29,37,0.04) 65%
+                , rgba(0,29,37,1)
+            );
+
+            article {
+                // background: linear-gradient(to top
+                // , rgba(130, 189, 197, 0)
+                // , rgba(130, 189, 197, 0.5) 3%
+                // , rgba(130, 189, 197, 1)
+                // , rgba(130, 189, 197, 0.5) 97%
+                // , rgba(130, 189, 197, 0)
+                // );
+                background: none;
+                color: #00000094;
+
+                width: 100%;
+                height: auto;
+                margin-left: 0;
+                margin-right: 0;
+
+                .to-details {
+                    margin-bottom: 50px;
+                    background: rgba(0,29,37,0.7);
+
+                    &:hover {
+                        background: rgba(0,29,37,0.4);
+                    }
+                }
+            }
+
+            .appartment-image {
+                order: -1;
+                margin: 20px auto 0 auto;
             }
         }
         
@@ -487,9 +569,129 @@ button:focus {
 @media (max-width: 992px) {
     #container {
 
+        .paragraph-size {
+            font-size: 0.8em;
+            line-height: 25px;
+        }
+
+        .title-page {
+            padding-top: 0;
+
+            #navbar {
+                background: #001D25;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 10;
+
+                width: 100%;
+                min-height: 55px;
+
+                .wrapper {
+                    .logo, #menu-burger {
+                        display: inline-block;
+                    }
+
+                    .logo {
+                        margin-left: 40px;
+                    }
+
+                    #menu-burger {
+                        margin-right: 30px;
+                    }
+                }
+
+                #menu-bar {
+                    background: #001D25;
+                    display: inline-block;
+                    height: 0;
+                    visibility: hidden;
+                    transition: height 0.5s ease-out;
+                    overflow: hidden;
+
+                    &.active {
+                        visibility: visible;
+
+                        position: fixed;
+                        left: 0;
+                        top: 50px;
+                        z-index: 5;
+
+                        width: 100vw;
+                        height: 100vh;
+
+                    }
+
+                    & > li {
+                        display: block;
+                        margin: 5px 0 0 40px;
+
+                        &:first-child {
+                            margin-top: 20px;
+                        }
+
+                        a {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+
+            .rectangle {
+                position: absolute;
+                top: 50%;
+                margin-top: -381px;
+
+                left: 50%;
+                margin-left: calc(-1 * (100% - 65px * 2)/2)
+            }
+        }
+
         .about {
             img {
                 margin-left: 0;
+                margin-right: 10px;
+            }
+
+            .about-text {
+                text-align: justify;
+            }
+        }
+
+        .sights {
+            flex-wrap: wrap;
+            flex-direction: column;
+
+            min-height: auto;
+            padding: 0;
+
+            > div {
+                min-height: 250px;
+                margin-left: 0;
+
+                background-size: 100%;
+            }
+
+            .megalopolis {
+                height: 400px;
+                max-width: none;
+                
+                background-position-x: 0;
+                background-position-y: -625px;
+            }
+
+            .nature {
+                background-position-y: -270px;
+                // background-position-x: ;
+            }
+
+            .beaches, .nature {
+                padding-left: 50px;
+                max-width: none;
+            }
+
+            hr {
+                bottom: 220px;
             }
         }
     }
@@ -512,39 +714,15 @@ button:focus {
             }
 
             #navbar {
+
                 .logo {
-                    display: inline-block;
-                    // width: 100%;
+                    width: 100%;
                 }
 
                 #menu-burger {
                     display: inline-block;
-                }
-
-                #menu-bar {
-                    background: #001D25;
-                    display: inline-block;
-                    height: 0;
-                    opacity: 1;
-                    padding-top: 20px;
-                    transition: height 0.5s ease-out, opacity 0.5s ease-out;
-                    overflow: hidden;
-
-
-                    &.active {
-                        visibility: visible;
-                        opacity: 1;
-                        height: 100vh;
-                    }
-
-                    & > li {
-                        display: block;
-                        margin: 5px auto;
-
-                        a {
-                            margin-left: 0;
-                        }
-                    }
+                    top: 20px;
+                    right: 0;
                 }
             }
         }
@@ -580,21 +758,10 @@ button:focus {
             > div {
                 height: 200px;
                 width: 100%;
+
                 margin-left: 0;
-            }
 
-            .megalopolis {
-                height: 400px;
-                width: 100%;
-            }
-
-            .nature {
-                background-position-y: -220px;
-            }
-
-            .beaches, .nature {
-                padding-left: 50px;
-                width: 100%;
+                background-size: auto;
             }
         }
 
@@ -627,7 +794,7 @@ button:focus {
                         transition: height 0.5s ease-in;
 
                         &.active {
-                            height: 280px;
+                            height: 350px;
                         }
 
                         p {
@@ -649,19 +816,12 @@ button:focus {
 
         .residence {
             min-height: auto;
-            flex-wrap: wrap;
-
-            article, .appartment-image {
-                // width: 100%;
-                flex: 0 1 100%;
-            }
 
             article {
                 margin: 0;
             }
 
             .appartment-image {
-                order: -1;
 
                 .slide {
                     width: 100%;
